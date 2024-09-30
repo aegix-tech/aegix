@@ -1,0 +1,33 @@
+﻿{% extends 'blog/base.html' %}
+
+    {% block meta_description %}
+        {% if post.meta_description %}
+            <meta name="description" content="{{ post.meta_description }}">
+        {% else %}
+            <meta name="description" content="Default description for the blog post">
+        {% endif %}
+    {% endblock %}
+
+    {% block meta_keywords %}
+        {% if post.keywords %}
+            <meta name="keywords" content="{{ post.keywords }}">
+        {% else %}
+            <meta name="keywords" content="Default keywords for the blog post">
+        {% endif %}
+    {% endblock %}
+
+{% block content %}
+  <article class="post-detail">
+    <h1>{{ post.title }}</h1>
+  <!-- Ajouter la boucle if / endif pour ne pas avoir d'erreur sur les articles sans images. -->
+      {% if post.thumbnail %}
+    <img src="{{ post.thumbnail.url }}" alt="L'image de l'article" class="post-image">
+    <p style="height: 20px;"></p>
+      {% endif %}
+  <!-- Balise <p> utilisée pour sauter une ligne -->
+    <div class="detail-detail">{{ post.content|safe|linebreaks }}</div>
+    <h5 class="post-author">Publié par <i>{{ post.author_or_default }}</i> le {{ post.created_on|date:'j F Y' }}</h5>
+  </article>
+
+{% endblock %}
+

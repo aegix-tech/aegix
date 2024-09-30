@@ -1,0 +1,44 @@
+﻿{% extends 'blog/base.html' %}
+
+
+{% block content %}
+<p style="height: 5px;"></p>
+<h1 style="font-size: 5rem; font-weight: bold;">Le blog</h1>
+{% for post in blog %}
+<article>
+
+    <div class="post-title">
+        <h2>{{ post.title }}</h2>
+
+
+    </div>
+
+
+    <!-- Gère l'affichage de l'image -->
+
+    {% if post.thumbnail %}
+    <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" class="post-image" style="width: 300px; height: auto;">
+    {% endif %}
+    <!-- Gère l'affichage de l'image -->
+
+    <p class="post-excerpt">{{ post.content|safe|truncatewords:80 }}</p>
+    <h5 style="font-weight: bold; font-size: 12px;" class="post-author">Publié par <i>{{ post.author_or_default }}</i> le {{ post.created_on|date:'j F Y' }}</h5>
+
+    <form action="{% url 'blog:post' slug=post.slug %}">
+        <button class="btn btn-submit">Lire l'article</button>
+    </form>
+
+
+    {% if request.user.is_authenticated %}
+    <div>
+        <a href="{% url 'blog:edit' slug=post.slug %}" class="btn-edit">Éditer</a>
+        <a href="{% url 'blog:delete' slug=post.slug %}" class="btn-delete">Supprimer</a>
+    </div>
+    {% endif %}
+    <p style="height: 60px;"></p>
+
+</article>
+{% endfor %}
+
+{% endblock %}
+

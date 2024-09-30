@@ -1,0 +1,47 @@
+/* form_styles.css */
+#create-author-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#create-author-form p {
+    margin-bottom: 15px;
+}
+
+#create-author-form input[type="text"],
+#create-author-form input[type="email"],
+#create-author-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#create-author-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#create-author-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+label[for="id_firstname"],
+label[for="id_lastname"] {
+    font-weight: bold; /* Mettre le texte en gras */
+    color: #333;       /* Changer la couleur du texte */
+    font-size: 14px;   /* Modifier la taille de la police */
+}
+
+btn_submit {
+    margin: 200rem;
+}

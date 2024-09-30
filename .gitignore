@@ -1,0 +1,8 @@
+env/
+.idea/
+.pytest_cache/
+token.txt
+run_server.sh
+**/__pycache__/
+*.pyc
+.env

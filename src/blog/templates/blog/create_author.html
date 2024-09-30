@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <h1>Créer un nouvel auteur</h1>
+<form method="post" id="create-author-form">
+    {% csrf_token %}
+    <div>
+        <label for="{{ form.firstname.id_for_label }}">Prénom :</label>
+        {{ form.firstname }}
+    </div>
+    <div>
+        <label for="{{ form.lastname.id_for_label }}">Nom :</label>
+        {{ form.lastname }}
+    </div>
+    <button type="submit">Enregistrer</button>
+</form>
+{% endblock %}
